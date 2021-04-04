@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+      <p>Check the project by uploading a Photo or a Video </p>
+      <p><button class="w3-button w3-light-grey w3-padding-large w3-section">
+        <div class="upload-form">
+            <form action="/basketball_detection" method="POST" enctype="multipart/form-data">
+                <div>
+                    <div class="mainbutton" onclick="document.getElementById('image_upload').click();">Upload an Image</div>
+                    <input type="file" style="display:none;" id="image_upload" name="image" onchange="form.submit()" />
+                </div>
+            </form>
+        </div>
+      </button>
+      
+      <button class="w3-button w3-light-grey w3-padding-large w3-section">
+        <div class="upload-form">
+            <div class="upload-form">
+                <form action="/shooting_analysis" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <div class="mainbutton delay-animation"
+                            onclick="document.getElementById('video_upload').click();">Upload a Video</div>
+                        <input type="file" style="display:none;" id="video_upload" name="video" onchange="form.submit()"/>
+                    </div>
+                </form>
+      </button></p>
+    </header>
+</div>
+
+<div class="w3-padding-large" id="main">
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small"></span> Snap Shots</h1>
+      <p>Few snapshots from the project that you can check as a sample </p>
+    </header>
+        <div class="w3-container w3-padding-32 w3-center w3-black">
+            <div class="w3-padding-large">
+                <a href="../static/img/shot_pose_analysis.png">
+                    <img class="demo-image" src="../static/img/shot_pose_analysis.png">
+                </a>
+            </div>
+            <div class="w3-padding-large">
+                <a href="../static/img/analysis_result.PNG">
+                    <img class="demo-image" src="../static/img/analysis_result.PNG">
+                </a>
+            </div>
+        </div>
+</div> 
+        <div class="w3-padding-large" id="main">
+            <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+                <h1 class="w3-jumbo"><span class="w3-hide-small"></span>Features</h1>
+              <p>Snapshot of few Features listed below</p>
+            </header>
+            <div class="w3-container w3-padding-32 w3-center w3-black">
+                <div class="w3-padding-large">
+                    <div class="feature-text"><h2>Shot analysis</h2> </div>
+                    <div class="feature-image">
+                        <a href="../static/img/analysis.gif">
+                            <img class="demo-feature" src="../static/img/analysis.gif">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-container w3-padding-32 w3-center w3-black">
+                <div class="w3-padding-large">
+                    <div class="feature-text"><h2>Shot detection</h1></div>
+                    <div class="feature-image">
+                        <a href="../static/img/detection.PNG">
+                            <img class="demo-small-feature" src="../static/img/detection.PNG">
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="small-feature">
+                    <div class="feature-text">Detection API call</div>
+                    <div class="feature-image">
+                        <a href="../static/img/API.PNG">
+                            <img class="demo-small-feature" src="../static/img/API.PNG">
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

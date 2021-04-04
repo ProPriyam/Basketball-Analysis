@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="w1-padding-large" id="main">
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small"></span> Basketball Shot Analysis</h1>
+      <h3>The Below are the two images one which consist of original post and one which consist of a detection post. 
+          Also attached is a table that contains Class, Confidence in shot and Coordinate in 2D plane.
+      </h3>
+    </header>
+    <div class="w3-container w3-padding-32 w3-center w3-black">
+        <div class="w3-padding-large">
+            <div class="stat-name"><h1>Original</h1></div>
+            <div class="underline"></div>
+        </div>
+        <a href="/static/uploads/{{ fname }}" target="_new"><img src="/static/uploads/{{ fname }}"
+                class="upload-image-thumb"></a>
+    </div>
+    <div class="w3-container w3-padding-32 w3-center w3-black">
+        <div class="w3-padding-large">
+            <div class="stat-name"><h1>Detection</h1></div>
+            <div class="underline"></div>
+        </div>
+        <a href="/static/detections/{{display_detection}}" target="_new"><img
+                src="/static/detections/{{display_detection}}" class="upload-image-thumb" ></a>
+    </div>
+</div>
+
+<!-- END PAGE CONTENT -->
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">The Analysis</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>The Analysis of the image is shown as below where you can see two different tables with their respective values
+    </p>
+
+<div class= "container">
+    <h3 class="w4-padding-16 w4-text-light-grey"></h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+            <li class="w3-dark-grey w3-xlarge w3-padding-32">Original</li>
+            <li class="w3-padding-16">1. Class</li>
+            <li class="w3-padding-16">{{ response[0]['class'] }}</li>
+            <li class="w3-padding-16">2. Confidence</li>
+            <li class="w3-padding-16">{{ response[0]['detection_detail']['confidence'] }}</li>
+            <li class="w3-padding-16">3. Coordinate</li>
+            <li class="w3-padding-16"> ({{ response[0]['detection_detail']['center_coordinate']['x'] }},
+              {{ response[0]['detection_detail']['center_coordinate']['y'] }})
+            </li>
+          </ul>
+        </div>
+  
+        <div class="w3-half">
+          <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+            <li class="w3-dark-grey w3-xlarge w3-padding-32">Detection</li>
+            <li class="w3-padding-16">1. Class</li>
+            <li class="w3-padding-16">{{ response[1]['class'] }}</li>
+            <li class="w3-padding-16">2. Confidence</li>
+            <li class="w3-padding-16">{{ response[1]['detection_detail']['confidence'] }}</li>
+            <li class="w3-padding-16">3. Coordinate</li>
+            <li class="w3-padding-16"> ({{ response[1]['detection_detail']['center_coordinate']['x'] }},
+              {{ response[0]['detection_detail']['center_coordinate']['y'] }})
+            </li>
+          </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div>
+</div>
+</div>
+
+
+
+{% endblock %} 
+

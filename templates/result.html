@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey">Result Analysis Analysis</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>The Analysis of the ivideo is shown as below where you can see two different tables with their respective values of Shot Counting and Pose Analysis
+    </p>
+    <div class= "container">
+        <h3 class="w4-padding-16 w4-text-light-grey"></h3>
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half w3-margin-bottom">
+                <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+                    <li class="w3-dark-grey w3-xlarge w3-padding-32">Shot Counting</li>
+                    <li class="w3-padding-16">Attemps</li>
+                    <li class="w3-padding-16">{{ shooting_result.attempts }}</li>
+                    <li class="w3-padding-16">Miss</li>
+                    <li class="w3-padding-16">{{ shooting_result.miss }}</li>
+                    <li class="w3-padding-16">Score</li>
+                    <li class="w3-padding-16"> {{ shooting_result.made }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="w3-half">
+                    <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+                      <li class="w3-dark-grey w3-xlarge w3-padding-32">Pose Analysis (Angle)</li>
+                      <li class="w3-padding-16">Elbow</li>
+                      <li class="w3-padding-16">{{ shooting_result.avg_elbow_angle}}°</li>
+                      <li class="w3-padding-16">Knee</li>
+                      <li class="w3-padding-16">{{ shooting_result.avg_knee_angle }}°</li>
+                      <li class="w3-padding-16">Release</li>
+                      <li class="w3-padding-16">{{ shooting_result.avg_release_angle }}°</li>
+                      <li class="w3-padding-16">Release Time</li>
+                      <li class="w3-padding-16">{{ shooting_result.avg_ballInHand_time }} sec</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="w3-container w3-padding-32 w3-center w3-black">
+    <div class="w3-padding-large">
+            <div class="image-description">
+                <div class="stat-name"><h2>Tracing Result</h2></div>
+                <div class="underline"></div>
+            </div>
+            <a href="/static/detections/basketball_trace.jpg" target="_new"><img
+                    src="/static/detections/basketball_trace.jpg" class="upload-image-thumb"></a>
+        </div>
+        <div class="image-container">
+            <div class="image-description">
+                <div class="stat-name"><h2>Trajectory Fitting</h2></div>
+                <div class="underline trajectory-underline"></div>
+            </div>
+            <a href="/static/detections/trajectory_fitting.jpg" target="_new"><img
+                    src="/static/detections/trajectory_fitting.jpg" class="upload-image-thumb"></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<div class="w3-padding-large" id="main">
+    <div class="image-description">
+        <div class="stat-name">Shot Counting</div>
+        <div class="underline"></div>
+    </div>
+    <div class="result-stat-container">
+        <div class="stat-item">
+            <div class="statname-container">
+                <div class="stat-name padding-right">Attempts</div>
+                <div class="underline video-underline"></div>
+            </div>
+            <div class="stat-num" stat-day>{{ shooting_result.attempts }}</div>
+        </div>
+        <div class="stat-item">
+            <div class="statname-container">
+                <div class="stat-name padding-right">Miss</div>
+                <div class="underline video-underline"></div>
+            </div>
+            <div class="stat-num" stat-message>{{ shooting_result.miss }}</div>
+        </div>
+        <div class="stat-item">
+            <div class="statname-container">
+                <div class="stat-name padding-right">Score</div>
+                <div class="underline video-underline"></div>
+            </div>
+            <div class="stat-num" stat-call>{{ shooting_result.made }}</div>
+        </div>
+    </div>
+</div>

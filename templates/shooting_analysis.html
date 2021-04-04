@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="w1-padding-large" id="main">
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small"></span>Shooting Analysis</h1>
+      <h3>The Below are the video-analysis of the file.
+      </h3>
+    </header>
+    
+    <div class="w3-container w3-padding-32 w3-center w3-black">
+        <div class="w3-padding-large">
+            <div class="description-container">
+                <div class="stat-name padding-right"><h2>Analysis | Tracing</h2></div>
+                <div class="underline video-underline"></div>
+            </div>
+        </div>
+        <img src="{{ url_for('video_feed') }}">
+    </div>
+    <div class="w3-container w3-padding-32 w3-center w3-black">
+        <div class="w3-padding-large">
+            <div class="color-legend blue">Blue: Detected basketball in normal status</div>
+            <div class="color-legend purple">Purple: Undetermined shot</div>
+            <div class="color-legend green">Green: Shot went in</div>
+            <div class="color-legend red">Red: Miss</div>
+        </div>
+    </div>
+    <div class="w3-container w3-padding-32 w3-center w3-black">
+        <div class="w3-padding-large">
+        <div class="upload-form">
+            <form action="/result" method="POST">
+                <button class="submit-button move-left" type="submit">
+                    <div>Result ></div>
+                    <div class="hint">(Wait till ending)</div>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
